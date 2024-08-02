@@ -1,9 +1,11 @@
 import express from 'express'
+import {authMiddleware} from './middleware'
+import {routes} from './routes'
 
-const server=express()
+express()
 
-server.get("/",(req,res)=>{
-   return res.json({message:"imageshop"})
-})
+.use(authMiddleware)
 
-server.listen(3333,()=>console.log("sever running port http://localhost:3333"))
+.use(routes)
+
+.listen(3333,()=>console.log("sever running port http://localhost:3333"))
