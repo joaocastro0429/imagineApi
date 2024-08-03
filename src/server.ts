@@ -5,6 +5,7 @@ import {routes} from './routes'
 express()
 
 .use(authMiddleware)
+.use(express.json())
 
 .use(routes)
 
